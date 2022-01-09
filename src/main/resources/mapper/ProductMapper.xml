@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.myeasydemo.dao.ProductDao">
+    <insert id="addProduct" parameterType="com.example.myeasydemo.entity.Product">
+        insert into product(pname,pprice,pcount) values (#{pname},#{pprice},#{pcount})
+    </insert>
+    <select id="getAllProduct" resultType="com.example.myeasydemo.entity.Product">
+        select * from product
+    </select>
+    <delete id="delProduct" parameterType="java.lang.Integer">
+        delete from product where id=#{id}
+    </delete>
+    <select id="getProductById" resultType="com.example.myeasydemo.entity.Product">
+        select * from product where id=#{id}
+    </select>
+    <select id="updateProduct" resultType="com.example.myeasydemo.entity.Product">
+        update product set pname=#{pname},pprice=#{pprice},pcount=#{pcount}
+        where id=#{id}
+    </select>
+</mapper>
